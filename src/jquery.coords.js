@@ -7,8 +7,10 @@
  */
 
 ;(function(root, factory) {
-
-    if (typeof define === 'function' && define.amd) {
+    if(typeof exports === 'object') {
+        module.exports = factory(require('jquery'));
+    }
+    else if (typeof define === 'function' && define.amd) {
         define('gridster-coords', ['jquery'], factory);
     } else {
        root.GridsterCoords = factory(root.$ || root.jQuery);
@@ -67,8 +69,13 @@
 
         var d = this.data;
 
-        typeof d.left === 'undefined' && (d.left = d.x1);
-        typeof d.top === 'undefined' && (d.top = d.y1);
+        if ( d.left === undefined ) {
+            d.left = d.x1;
+        }
+
+        if ( d.top === undefined ) {
+            d.top = d.y1;
+        }
 
         this.coords.x1 = d.left;
         this.coords.y1 = d.top;

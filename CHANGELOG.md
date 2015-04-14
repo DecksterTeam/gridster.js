@@ -1,3 +1,6 @@
+<a name="v0.6.6"></a>
+### v0.6.6 (2015-04-08)
+
 <a name="v0.6.5"></a>
 ### v0.6.5 (2015-04-06)
 
@@ -54,6 +57,9 @@
 #### Features
 
 * **gridster:** make grid responsive ([a3913043](http://github.com/DecksterTeam/gridster.js/commit/a3913043579bae9f5ef28e34524ad7a8ae7dcafd))
+
+<a name="v0.5.7"></a>
+### v0.5.7 (2015-02-17)
 
 <a name="v0.5.6"></a>
 ### v0.5.6 (2014-09-25)
@@ -240,3 +246,60 @@
 * **gridster:** drag-and-drop widget resizing ([e1924053](http://github.com/ducksboard/gridster.js/commit/e19240532de0bad35ffe6e5fc63934819390adc5))
 * **utils:** add delay helper to utils ([faa6c5db](http://github.com/ducksboard/gridster.js/commit/faa6c5db0002feccf681e9f919ed583eef152773))
 
+dustmoo Modifications
+===========
+Changelog 2013-04-3
+
+Fork now handles standard behavior properly with swap allowing larger widgets to shift down.
+
+Changelog 2013-04-2
+
+Added Demo to Repository.
+
+Changelog 2013-02-27
+
+Added "Static widget support" Static Items default to the "static" class.
+
+You can customize this class by using the code below:
+
+    $.gridster({
+        static_class: 'custom_class',
+        draggable: {
+            items: ".gs_w:not(.custom_class)"
+        }
+    });
+
+I have also added functions creating a much more thourough check of whether the player can occupy the space you are moving it too.
+This version is much more reliable in swapping space with widgets.
+
+There are also new options for Maximum Rows and Maximum Columns:
+
+    $.gridster({
+        max_rows: map_rows,
+        max_cols: map_cols,
+        shift_larger_widgets_down: false
+    });
+
+Setting the maximum amount of rows only completely works if you disable shifting larger widgets down at the moment.
+
+
+Changelog 11-26-2012
+
+Reworked swapping functionality to better handle large to small widget handling.
+
+---
+
+Widgets of smaller or equal size to the dragged widget (player)
+will swap places with the original widget.
+
+This causes tiles to swap left and right as well as up and down.
+
+By default smaller players will shift larger widgets down.
+
+I have added an option to prevent this behavior:
+
+    $.gridster({
+        shift_larger_widgets_down: false
+    });
+
+By setting shift_larger_widgets_down to false, smaller widgets will not displace larger ones.
